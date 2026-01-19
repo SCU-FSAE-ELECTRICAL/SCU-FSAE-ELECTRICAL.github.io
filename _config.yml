@@ -1,0 +1,45 @@
+# Site settings
+title: SCU FSAE Electrical Team
+description: >- # this means to ignore newlines until "baseurl:"
+  Official website for the Santa Clara University Formula SAE Electrical Team.
+  Bronco Racing - Building the future of electric racing.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://scu-fsae-electrical.github.io" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+
+# Social links
+github_username: SCU-FSAE-ELECTRICAL
+
+# Collections
+collections:
+  team:
+    output: true
+    permalink: /team/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"

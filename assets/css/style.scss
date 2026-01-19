@@ -1,0 +1,75 @@
+---
+---
+
+@import "minima";
+
+/* Custom styles for SCU FSAE Electrical Team */
+
+.site-header {
+  border-top: 5px solid #b30838;
+  background-color: #fff;
+}
+
+.site-title {
+  font-weight: 700;
+  color: #b30838 !important;
+}
+
+.page-link {
+  color: #424242;
+  transition: color 0.3s ease;
+}
+
+.page-link:hover {
+  color: #b30838;
+  text-decoration: none;
+}
+
+.post-link {
+  color: #b30838;
+}
+
+.post-link:hover {
+  color: #8a0629;
+}
+
+.site-footer {
+  background-color: #f5f5f5;
+  border-top: 1px solid #e8e8e8;
+}
+
+/* Home page styling */
+.home h1 {
+  color: #b30838;
+  margin-bottom: 1em;
+}
+
+.home h2 {
+  color: #424242;
+  margin-top: 1.5em;
+}
+
+/* Post list styling */
+.post-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.post-list > li {
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.post-meta {
+  font-size: 14px;
+  color: #828282;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+  .site-nav {
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+  }
+}
