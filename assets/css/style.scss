@@ -73,3 +73,28 @@
     border: 1px solid #e8e8e8;
   }
 }
+
+.pcb-doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.pcb-doc-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.pcb-doc-card h3 {
+  margin-top: 0;
+  color: #b30838;
+}
+
+.pcb-doc-card img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #e8e8e8;
+  margin-bottom: 0.75rem;
+}
