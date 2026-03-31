@@ -17,7 +17,12 @@
         <a class="page-link" href="{{ '/about/' | relative_url }}">About</a>
         {% for path in site.pages %}
           {% if path.title and path.url != '/' and path.url != '/about/' %}
+            {% if path.url == '/documentation/' %}
           <a class="page-link" href="{{ path.url | relative_url }}">{{ path.title | escape }}</a>
+            {% elsif path.url contains '/documentation/' %}
+            {% else %}
+          <a class="page-link" href="{{ path.url | relative_url }}">{{ path.title | escape }}</a>
+            {% endif %}
           {% endif %}
         {% endfor %}
       </div>
