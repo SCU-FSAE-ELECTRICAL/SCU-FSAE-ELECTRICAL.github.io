@@ -122,17 +122,23 @@
 }
 
 .pcb-doc-card > *:not(summary) {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  margin-top: 0;
-  transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.35s ease;
+  margin-top: 0.75rem;
 }
 
 .pcb-doc-card[open] > *:not(summary) {
-  max-height: 1000px;
-  opacity: 1;
-  margin-top: 0.75rem;
+  animation: pcb-doc-reveal 0.3s ease;
+}
+
+@keyframes pcb-doc-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-0.25rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -140,6 +146,7 @@
   .pcb-doc-card summary::after,
   .pcb-doc-card > *:not(summary) {
     transition: none;
+    animation: none;
   }
 }
 
