@@ -85,17 +85,62 @@
   border-radius: 6px;
   padding: 1rem;
   background: #fff;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pcb-doc-card[open] {
+  border-color: #d5d5d5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .pcb-doc-card summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
   font-weight: 700;
   color: #b30838;
   list-style-position: outside;
 }
 
+.pcb-doc-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.pcb-doc-card summary::marker {
+  content: "";
+}
+
+.pcb-doc-card summary::after {
+  content: "▾";
+  transition: transform 0.25s ease;
+}
+
+.pcb-doc-card[open] summary::after {
+  transform: rotate(180deg);
+}
+
 .pcb-doc-card > *:not(summary) {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.35s ease;
+}
+
+.pcb-doc-card[open] > *:not(summary) {
+  max-height: 1000px;
+  opacity: 1;
   margin-top: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pcb-doc-card,
+  .pcb-doc-card summary::after,
+  .pcb-doc-card > *:not(summary) {
+    transition: none;
+  }
 }
 
 .pcb-doc-card img {
