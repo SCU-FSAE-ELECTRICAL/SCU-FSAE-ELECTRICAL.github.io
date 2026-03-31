@@ -17,7 +17,7 @@ The BSPD PCB implements brake system plausibility processing and generates a fau
 
 ### Current implementation summary
 - Comparator-based plausibility detection architecture
-- OR-gate aggregation of fault paths before shutdown signaling
+- OR gate aggregation of fault paths before shutdown signaling
 - Debug indicator strategy under review for final hardware revision
 
 ### Open design items

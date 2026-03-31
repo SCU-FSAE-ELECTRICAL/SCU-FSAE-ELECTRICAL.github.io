@@ -16,7 +16,7 @@ The APPS PCB conditions APPS and brake sensor signals for the control electronic
 - Open-circuit detectability for critical pedal/sensor inputs
 
 ### Current implementation summary
-- Uses resistor dividers to scale sensor voltages into the MCU-safe range
+- Uses resistor dividers to scale sensor voltages into the safe range for the MCU
 - Provides 3.3 V and 5 V rails as needed by sensor and logic domains
 - Includes pull-down resistors on sensor inputs to improve open-circuit detection
 
