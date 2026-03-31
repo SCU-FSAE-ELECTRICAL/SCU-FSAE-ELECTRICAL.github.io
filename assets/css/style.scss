@@ -74,10 +74,10 @@
   }
 }
 
-.pcb-doc-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+.pcb-doc-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .pcb-doc-card {
@@ -87,9 +87,15 @@
   background: #fff;
 }
 
-.pcb-doc-card h3 {
-  margin-top: 0;
+.pcb-doc-card summary {
+  cursor: pointer;
+  font-weight: 700;
   color: #b30838;
+  list-style-position: outside;
+}
+
+.pcb-doc-card > *:not(summary) {
+  margin-top: 0.75rem;
 }
 
 .pcb-doc-card img {
