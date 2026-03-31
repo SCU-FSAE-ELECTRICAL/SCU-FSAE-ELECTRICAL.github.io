@@ -6,21 +6,21 @@ permalink: /documentation/
 
 ## PCB Documentation
 
-This page links to the current interactive BOM (iBOM) files for each PCB. Descriptions and photos below are placeholders and will be replaced with final documentation assets.
+This page links to the current interactive BOM (iBOM) files for each PCB. Where available, board documentation pages include Formula SAE rule-mapping notes and implementation summaries. Always verify rule references against the latest official Formula SAE rulebook.
 
 <div class="pcb-doc-grid">
   <section class="pcb-doc-card">
     <h3 id="apps-pcb">APPS PCB</h3>
     <img src="{{ '/assets/images/pcb-placeholder.svg' | relative_url }}" alt="Placeholder photo for APPS PCB">
     <p>Placeholder description: accelerator pedal position sensor interface PCB documentation will be added here.</p>
-    <p><a href="{{ '/bom/apps.html' | relative_url }}">Open iBOM</a></p>
+    <p><a href="{{ '/bom/apps.html' | relative_url }}">Open iBOM</a> · <a href="{{ '/documentation/apps/' | relative_url }}">Board Documentation</a></p>
   </section>
 
   <section class="pcb-doc-card">
     <h3 id="bspd-pcb">BSPD PCB</h3>
     <img src="{{ '/assets/images/pcb-placeholder.svg' | relative_url }}" alt="Placeholder photo for BSPD PCB">
     <p>Placeholder description: brake system plausibility device PCB documentation will be added here.</p>
-    <p><a href="{{ '/bom/bspd.html' | relative_url }}">Open iBOM</a></p>
+    <p><a href="{{ '/bom/bspd.html' | relative_url }}">Open iBOM</a> · <a href="{{ '/documentation/bspd/' | relative_url }}">Board Documentation</a></p>
   </section>
 
   <section class="pcb-doc-card">
@@ -69,6 +69,6 @@ This page links to the current interactive BOM (iBOM) files for each PCB. Descri
     <h3 id="voltage-indicator-pcb">Voltage Indicator PCB</h3>
     <img src="{{ '/assets/images/pcb-placeholder.svg' | relative_url }}" alt="Placeholder photo for Voltage Indicator PCB">
     <p>Placeholder description: high-voltage indicator PCB documentation will be added here.</p>
-    <p><a href="{{ '/bom/voltage-indicator.html' | relative_url }}">Open iBOM</a></p>
+    <p><a href="{{ '/bom/voltage-indicator.html' | relative_url }}">Open iBOM</a> · <a href="{{ '/documentation/voltage-indicator/' | relative_url }}">Board Documentation</a></p>
   </section>
 </div>

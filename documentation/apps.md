@@ -1,11 +1,24 @@
-**Description**
-- Implements rules T.4.2.3, T.4.2.7-11
-- Has a 1/2 current divider for BSEs to shift logic down to safe range for teensy (5V -> 2.5V)
-- Has current dividers for both APPS sensors using different transfer functions(T.4.2.3)
-- Supplys 5V power to BSEs and 3.3V power to APPS using a linear regulator
-    - Different because teensy is 3.3V logic so its easier to just supply 3.3V power but the BSEs need
-      5V because the BSPD requires that they do
-- Pull down resistors are on all sensors to be able to detect open circuits
+---
+layout: documentation
+title: APPS PCB Documentation
+permalink: /documentation/apps/
+---
 
-**Notes 1/22/2026**
-- Get smaller regulator T092
+## APPS PCB
+
+The APPS PCB conditions APPS and brake sensor signals for the control electronics and supports plausibility checks used by the shutdown logic.
+
+> **Rule check note:** Formula SAE rules are updated regularly. The references below reflect the team mapping at the time of writing and must be re-validated against the current official rulebook before design freeze and competition.
+
+### Referenced Formula SAE rule areas
+- APPS sensor plausibility and signal handling requirements
+- Brake system encoder/sensor signal interface requirements
+- Open-circuit detectability for critical pedal/sensor inputs
+
+### Current implementation summary
+- Uses resistor dividers to scale sensor voltages into the safe range for the MCU
+- Provides 3.3 V and 5 V rails as needed by sensor and logic domains
+- Includes pull-down resistors on sensor inputs to improve open-circuit detection
+
+### Design status notes
+- Evaluate alternate regulator package selection for final board revision
