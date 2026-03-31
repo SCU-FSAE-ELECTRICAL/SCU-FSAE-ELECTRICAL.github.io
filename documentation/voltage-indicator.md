@@ -1,63 +1,47 @@
-# Voltage Indicator PCB
-
-
-
-
-# Design
+---
+layout: documentation
+title: Voltage Indicator PCB Documentation
+permalink: /documentation/voltage-indicator/
 ---
 
-**Rules from FSAE**
-> EV.5.7 Voltage Indicator
-> - Each Tractive Battery Pack must have a prominent indicator when High Voltage T.9.1.1 is present at the vehicle side of the IRs
-> - EV.5.7.1 The Voltage Indicator must always function, including when the Tractive Battery Pack is disconnected or removed
-> - EV.5.7.2 The voltage present at the vehicle side of the Isolation Relays must directly control and power the Voltage Indicator using hard wired electronics with no software control
-> - EV.5.7.3 The control signal which closes the IRs must not control the Voltage Indicator
-> - EV.5.7.4 The Voltage Indicator must
-> a. Be located where it is clearly visible when connecting/disconnecting the Tractive Battery Pack connections
-> b. Be labeled “High Voltage Present”
+## Voltage Indicator PCB
 
+The Voltage Indicator PCB provides a hardware-powered high-voltage-present indication at the vehicle side of the isolation relays.
 
-|Component|Model/Value|Data Sheet|
-|--|--|--|
-|Linear Regulator|LR8|[https://ww1.microchip.com/downloads/en/DeviceDoc/20005399B.pdf](https://ww1.microchip.com/downloads/en/DeviceDoc/20005399B.pdf)|
-|R1|1kOhm CF14JT1K00|https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CF14JT1K00/1741314|
-|R2|18.2kOhm YR1B18K2CC|https://www.digikey.com/en/products/detail/te-connectivity-passive-product/YR1B18K2CC/18101816?curr=usd|
-|Capacitor|1uF|https://www.chemi-con.co.jp/products/relatedfiles/capacitor/catalog/NTDA0-e.PDF|
-|LED|12V Led On Hand|||
-|High Voltage Connector|VL Connecotr|https://www.jst-mfg.com/product/pdf/eng/eVL1.pdf|
+> **Rule check note:** Formula SAE rules are updated regularly. References below are team guidance and must be verified against the latest official rulebook before final release.
 
-**Calculations**
+### Referenced Formula SAE rule areas
 
-For resistor values:
+- High-voltage-present indication at the vehicle side of the isolation relays
+- Indicator operation independent of software control
+- Indicator visibility and required labeling near pack connect/disconnect operations
 
-LR8, Vmax = 450V
+### Current implementation summary
 
-Vout = 1.20V(1+R2/R1)+Iadj*R2
+- Indicator power and control derive directly from tractive-system voltage through hard-wired circuitry
+- Dedicated regulator path used for indicator drive
+- Labeling and placement are intended for clear visibility during pack service operations
 
-1.20V(1+18.2kOhm/1kOhm)+15uA\*1kOhm
+### Core components
+| Component | Model / Value | Data Sheet |
+| -- | -- | -- |
+| Linear Regulator | LR8 | [Microchip LR8 Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/20005399B.pdf) |
+| R1 | 1 kΩ (CF14JT1K00) | [DigiKey](https://www.digikey.com/en/products/detail/stackpole-electronics-inc/CF14JT1K00/1741314) |
+| R2 | 18.2 kΩ (YR1B18K2CC) | [DigiKey](https://www.digikey.com/en/products/detail/te-connectivity-passive-product/YR1B18K2CC/18101816?curr=usd) |
+| Capacitor | 1 µF | [Chemi-Con](https://www.chemi-con.co.jp/products/relatedfiles/capacitor/catalog/NTDA0-e.PDF) |
+| Indicator LED | Panel-mount LED candidate | Team selection in progress |
+| High-voltage connector | JST VL series | [JST VL Series](https://www.jst-mfg.com/product/pdf/eng/eVL1.pdf) |
 
-= 23.313V
+### Calculation snapshot
 
-# Schematic
----
-Based on use case found in LR8 Linear Regualtor Documentation adjusted for an output of around 24V:
-![Example Schematic](img/Example.jpg)
+For the current regulator divider values:
 
-![Our Schematic](img/Schematic.PNG)
+`Vout = 1.20V * (1 + R2/R1) + Iadj * R2`
 
-# Board
----
-![Our Board](img/Board.PNG)
+Using `R1 = 1 kΩ` and `R2 = 18.2 kΩ` gives approximately `23.3 V` target output.
 
-# Action Item List
-**1/17/2026 Check LR8 for Power Disipation**
-- 1-2mA LED?
-- Large Resistor Design?
-- Get reisstors for 450V
+### Open design items
 
-**1/22/2026 Notes**
-- Still check for panel mount 1-2mA panel mount LED
-    - Add resistor before LED? (Could use 0 Ohms if it doesn't work)
-- Add more metal around LR
-- Add vias to rear ground plane
-- Move caps away from LR
+- Confirm thermal margin and power dissipation on LR8 at worst-case pack voltage
+- Finalize LED operating current target and any required series resistance
+- Finalize creepage/clearance and high-voltage-rated passive component selection
