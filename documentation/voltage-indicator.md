@@ -11,11 +11,13 @@ The Voltage Indicator PCB provides a hardware-powered high-voltage-present indic
 > **Rule check note:** Formula SAE rules are updated regularly. References below are team guidance and must be verified against the latest official rulebook before final release.
 
 ### Referenced Formula SAE rule areas
+
 - High-voltage-present indication at the vehicle side of the isolation relays
 - Indicator operation independent of software control
 - Indicator visibility and required labeling near pack connect/disconnect operations
 
 ### Current implementation summary
+
 - Indicator power and control derive directly from tractive-system voltage through hard-wired circuitry
 - Dedicated regulator path used for indicator drive
 - Labeling and placement are intended for clear visibility during pack service operations
@@ -31,13 +33,15 @@ The Voltage Indicator PCB provides a hardware-powered high-voltage-present indic
 | High-voltage connector | JST VL series | [JST VL Series](https://www.jst-mfg.com/product/pdf/eng/eVL1.pdf) |
 
 ### Calculation snapshot
+
 For the current regulator divider values:
 
 `Vout = 1.20V * (1 + R2/R1) + Iadj * R2`
 
-Using R1 = 1 kΩ and R2 = 18.2 kΩ gives approximately 23.3 V target output.
+Using `R1 = 1 kΩ` and `R2 = 18.2 kΩ` gives approximately `23.3 V` target output.
 
 ### Open design items
+
 - Confirm thermal margin and power dissipation on LR8 at worst-case pack voltage
 - Finalize LED operating current target and any required series resistance
 - Finalize creepage/clearance and high-voltage-rated passive component selection
